@@ -49,7 +49,6 @@ d3.csv("data/data.csv", function (err, demoData) {
     data.physicalActivity = +data.physicalActivity;
   });
 
-
   //Create scale functions
   var xLinearScale = d3.scaleLinear()
     .domain(d3.extent(demoData, d => d.poverty))
@@ -83,22 +82,22 @@ d3.csv("data/data.csv", function (err, demoData) {
   .attr("opacity", ".5")
 
   //Create state labels
-  chartGroup.append("text")
+  labelGroup = chartGroup.append("text")
         .style("text-anchor", "middle")
         .style("font-size", "10px")
         .selectAll("tspan")
         .data(demoData)
         .enter()
         .append("tspan")
-            .attr("x", function(data) {
-                return xLinearScale(data.poverty - 0);
-            })
-            .attr("y", function(data) {
-                return yLinearScale(data.physicalActivity - 0.2);
-            })
-            .text(function(data) {
-                return data.stateCode
-            });
+        .attr("x", function(data) {
+          return xLinearScale(data.poverty - 0);
+        })
+        .attr("y", function(data) {
+          return yLinearScale(data.physicalActivity - 0.2);
+        })
+        .text(function(data) {
+          return data.stateCode
+        });
   
 
   //Initialize tool tip
@@ -116,6 +115,11 @@ d3.csv("data/data.csv", function (err, demoData) {
   circlesGroup.on("click", function (data) {
       toolTip.show(data);
     })
+  
+  labelGroup.on("click", function(data){
+      toolTip.show(data);
+  })
+
     //onmouseout event
     .on("mouseout", function (data, index) {
       toolTip.hide(data);
