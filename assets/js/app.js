@@ -1,3 +1,22 @@
+d3.select(window).on("resize", handleResize);
+
+// When the browser loads, call loadchart()
+loadChart();
+
+function handleResize() {
+  var svgArea = d3.select("svg");
+
+  // If there is already an svg container on the page, remove it and reload the chart
+  if (!svgArea.empty()) {
+    svgArea.remove();
+    loadChart();
+  };
+};
+
+function loadChart() {
+    var svgWidth = window.innerWidth;
+    var svgHeight = window.innerHeight;
+
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -29,6 +48,7 @@ d3.csv("data/data.csv", function (err, demoData) {
     data.poverty = +data.poverty;
     data.physicalActivity = +data.physicalActivity;
   });
+
 
   //Create scale functions
   var xLinearScale = d3.scaleLinear()
@@ -115,3 +135,5 @@ d3.csv("data/data.csv", function (err, demoData) {
     .attr("class", "axisText")
     .text("Poverty(%)");
 });
+
+};
