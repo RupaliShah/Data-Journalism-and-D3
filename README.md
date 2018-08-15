@@ -3,7 +3,7 @@
 Correlation between Poverty and hysical Activity, each measured state by state and taken from different data sources is visualized with a scatter plot, and the graphic is embedded into an .html file.
 
 <p align="center">
-  <img width="500" height="300" src="images/scatter plot.png">
+  <img width="600" height="300" src="images/scatter plot.png">
 </p>
 
 ## Dataset
@@ -18,8 +18,8 @@ Correlation between Poverty and hysical Activity, each measured state by state a
 
 ## Data Formatting and Visualizing
 
-Data is merged and formatted in excel with appropriate header names.To ensure a moderate correlation, data is tested with Excel's =CORREL() function for a value either less than -0.5 or more than 0.5.
+* Data is merged and formatted in excel with appropriate header names.To ensure a moderate correlation, data is tested with Excel's =CORREL() function for a value either less than -0.5 or more than 0.5.
 
-The Scatter Plot is embedded with an iframe.
+* The Scatter Plot is embedded with an iframe.
 
-Tooltips are created using a plugin 'd3-tip.js' developed by [Justin Palmer](https://github.com/Caged). Clicking on the circles displays a tooltip with the data that the user has selected.
+* Tooltips are created using a plugin 'd3-tip.js' developed by [Justin Palmer](https://github.com/Caged). Clicking on the circles displays a tooltip with the data that the user has selected.
